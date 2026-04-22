@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlackScreen Market</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <nav class="nav">
+        <a class="brand" href="#top">BlackScreen Market</a>
+        <div class="nav-links">
+          <a href="#produkte">Produkte</a>
+          <a href="#auth">Account</a>
+          <a class="hidden" id="admin-nav-link" href="#admin-section">Admin</a>
+          <a href="#discord">Discord</a>
+        </div>
+      </nav>
+
+      <section class="hero-grid" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow">BlackScreen Market</p>
+          <h1>BlackScreen Market</h1>
+          <p class="lead">
+            Produkte ansehen, Account erstellen, einloggen und ueber Discord direkt
+            Support oder ein Ticket starten.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#produkte">Produkte ansehen</a>
+            <a class="button secondary" href="#auth">Jetzt registrieren</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel">
+          <p class="eyebrow">Live Features</p>
+          <div class="hero-stat-list">
+            <article>
+              <strong>Shop</strong>
+              <span>Produkte klar praesentiert</span>
+            </article>
+            <article>
+              <strong>Login</strong>
+              <span>Demo-Account direkt nutzbar</span>
+            </article>
+            <article>
+              <strong>Discord</strong>
+              <span>Kontakt und Ticket-Button</span>
+            </article>
+          </div>
+        </aside>
+      </section>
+    </header>
+
+    <main>
+      <section class="section" id="produkte">
+        <div class="section-heading">
+          <p class="eyebrow">Produkte</p>
+          <h2>Hier kann man alle Produkte sehen</h2>
+          <p>Hier sieht man die aktuellen Ingame-Shop-Produkte im BlackScreen Market.</p>
+        </div>
+
+        <div class="products" id="product-list"></div>
+      </section>
+
+      <section class="section split-section" id="auth-section">
+        <div class="auth-card">
+          <div class="section-heading">
+            <p class="eyebrow">Login</p>
+            <h2>In deinen Account einloggen</h2>
+            <p>Melde dich mit deinem Account an, um den Shop zu nutzen.</p>
+          </div>
+
+          <form id="login-form" class="form-grid">
+            <label>
+              Benutzername
+              <input type="text" name="username" placeholder="Dein Benutzername" required>
+            </label>
+            <label>
+              Passwort
+              <input type="password" name="password" placeholder="Dein Passwort" required>
+            </label>
+            <button type="submit" class="button primary">Einloggen</button>
+          </form>
+        </div>
+
+        <div class="auth-card">
+          <div class="section-heading">
+            <p class="eyebrow">Registrieren</p>
+            <h2>Neuen Account erstellen</h2>
+            <p>Erstelle einen Demo-Account direkt im Browser.</p>
+          </div>
+
+          <form id="register-form" class="form-grid">
+            <label>
+              Benutzername
+              <input type="text" name="username" placeholder="Neuer Benutzername" required>
+            </label>
+            <label>
+              Discord Name
+              <input type="text" name="discord" placeholder="z. B. hugo1234" required>
+            </label>
+            <label>
+              Passwort
+              <input type="password" name="password" placeholder="Sicheres Passwort" required>
+            </label>
+            <button type="submit" class="button primary">Account erstellen</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="section account-section">
+        <div class="status-card">
+          <div>
+            <p class="eyebrow">Account Status</p>
+            <h2 id="current-user">Nicht eingeloggt</h2>
+          </div>
+          <button id="logout-button" class="button secondary" type="button">Logout</button>
+        </div>
+      </section>
+
+      <section class="section hidden" id="admin-section">
+        <div class="section-heading">
+          <p class="eyebrow">Admin Panel</p>
+          <h2>Produkte und Nutzer ueberblicken</h2>
+          <p>Nur Admins koennen diesen Bereich sehen und Produkte verwalten.</p>
+        </div>
+
+        <div class="admin-panel hidden" id="admin-panel">
+          <div class="admin-box">
+            <h3>Neues Produkt anlegen</h3>
+            <form id="product-form" class="form-grid">
+              <label>
+                Produktname
+                <input type="text" name="name" placeholder="Neues Produkt" required>
+              </label>
+              <label>
+                Preis in Ingame-Dollar
+                <input type="number" name="price" min="1" step="1" placeholder="5000000" required>
+              </label>
+              <label>
+                Kategorie
+                <input type="text" name="tag" placeholder="VIP, Sale, Neu" required>
+              </label>
+              <label>
+                Beschreibung
+                <textarea name="description" rows="4" placeholder="Kurze Beschreibung" required></textarea>
+              </label>
+              <button type="submit" class="button primary">Produkt speichern</button>
+            </form>
+          </div>
+
+          <div class="admin-box">
+            <h3>Produkte verwalten</h3>
+            <ul id="admin-product-list" class="data-list"></ul>
+          </div>
+
+          <div class="admin-box">
+            <h3>Registrierte Accounts</h3>
+            <ul id="account-list" class="data-list"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section discord-section" id="discord">
+        <div class="discord-card">
+          <div class="section-heading">
+            <p class="eyebrow">Discord Kontakt</p>
+            <h2>Support und Kauf ueber Discord</h2>
+            <p>
+              Kunden koennen dich ueber Discord erreichen und dort fuer einen Kauf direkt
+              ein Ticket erstellen.
+            </p>
+          </div>
+
+          <div class="discord-actions">
+            <a class="button primary" href="https://discord.gg/4DNKHYaqP" target="_blank" rel="noreferrer">Discord oeffnen</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>2026 BlackScreen Market. Ingame Handel, Login und Admin-Demo.</p>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
