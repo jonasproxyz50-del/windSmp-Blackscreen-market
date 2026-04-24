@@ -1,10 +1,4 @@
-  },
-  {
-    name: "End Crystal 1x",
-    price: 2400000,
-    tag: "OP Items",
-    description: "Wir verkaufen dir"
-  }
+
 const defaultProducts = [
   {
     name: "Skeleton Spawner",
@@ -13,6 +7,14 @@ const defaultProducts = [
     description: "Du verkaufst uns"
   }
 ];
+
+{
+  name: "End Crystal",
+  price: 2400000,
+  tag: "OP Items",
+  description: "Wir verkaufen dir"
+}
+
 
 const defaultAccounts = [
   {
