@@ -1,9 +1,16 @@
+  },
+  {
+    name: "End Crystal 1x",
+    price: 2400000,
+    tag: "OP Items",
+    description: "Wir verkaufen dir"
+  }
 const defaultProducts = [
   {
     name: "Skeleton Spawner",
-    price: 5000000,
+    price: 3000000,
     tag: "Spawner",
-    description: "Ein Skeleton Spawner fuer deinen Ingame-Fortschritt auf WindSMP."
+    description: "Du verkaufst uns"
   }
 ];
 
